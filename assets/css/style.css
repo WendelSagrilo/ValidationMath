@@ -4,12 +4,19 @@
 }
 
 body{
-    background-image: url(../img/background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+/*Background Tela Inicial*/
+.start{
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    overflow: hidden;
     width: 100vw;
     height: 100vh;
 }
+
 
 /*Box das Informações e botao*/
 .box-content{
@@ -59,9 +66,20 @@ body{
 
 .btn:active{
     background-color: red;
-    color:black;
+    color:black; 
     padding-top: 3px;
     box-shadow: none;
+}
+
+
+/*Background Jogo*/
+.game{
+    background-image: url(../img/backgroundGame.jpg);
+    background-size: cover;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: none;
 }
 
 /*Box do Game*/
@@ -90,6 +108,8 @@ body{
         border-radius: 2px;
         box-shadow: 2px 2px 0 black;
         padding:10px 10px;
+        display: flex;
+        justify-content: center;
 }
 /*Numeros do cronometro*/
 .min{
