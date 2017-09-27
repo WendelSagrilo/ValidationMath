@@ -1,6 +1,8 @@
 $(function(){
     var btnStart = $('#btn');
 
+    var timer = $("#timer");
+
     btnStart.on("click", function(){
 
         var startContent = $('#boxContent');  
@@ -24,18 +26,31 @@ $(function(){
             var seg = $("#seg").val;
             var boxSeg = $("#boxSeg");
 
-            var mil = $("#min").val;
+            var min = $("#min").val;
             var boxMin = $("#boxMin");
 
 
             mil = 0;
-            seg = 30;
+            seg = 29;
             min = 0;       
 
-            var timer = setInterval(function(){
+            var play = setInterval(function(){
+                
+                if(seg < 15 && seg > 5){
+                    boxMil.css("color", "yellow");                    
+                    boxSeg.css("color", "yellow");
+                    boxMin.css("color", "yellow");
+                    
+                }else if(seg < 5){
+                    
+                    boxMil.css("color", "red");                    
+                    boxSeg.css("color", "red");
+                    boxMin.css("color", "red");
+                }
+                
                 mil = mil + 1;
                 boxMil.html('<span class="mil" style= "padding: 0 5px">' +mil+ '</span>');
-                
+
                 if(mil > 99){
                     mil = 0;
                     seg = seg - 1;
@@ -45,15 +60,14 @@ $(function(){
                     min = min +1;
 
                     boxMin.html('<span  class="min" style= "padding: 0 5px">' +min+ '</span>');
+                } else if(seg == 0 && mil ==99){
+                    mil = 0;
+                    boxMil.html('<span class="mil" style= "padding: 0 5px">' +mil+ '</span>');
+                    clearInterval(play); 
                 }
-
-
             },10);
-
-
-    },1000);
+        },1000);
     }); 
-
 
 
 
