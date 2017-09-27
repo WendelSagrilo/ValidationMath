@@ -54,7 +54,7 @@ $(function(){
                 if(mil > 99){
                     mil = 0;
                     seg = seg - 1;
-                    boxSeg.html('<span class="seg" style= "padding: 0 5px">' +seg+ '</span>');
+                    boxSeg.html('<span class="seg" style= "padding: 0 5px">' +seg+ '&nbsp:</span>');
                 } else if(seg > 60){
                     seg = 0;
                     min = min +1;
@@ -65,10 +65,14 @@ $(function(){
                     boxMil.html('<span class="mil" style= "padding: 0 5px">' +mil+ '</span>');
                     clearInterval(play); 
                 }
+
+                if(seg <10){
+
+                    boxSeg.html('<span class="seg" style= "padding: 0 5px">0' +seg+ '&nbsp :</span>');
+                } 
+                
+
             },10);
         },1000);
     }); 
-
-
-
 }); 
