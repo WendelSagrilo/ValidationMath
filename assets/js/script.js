@@ -60,23 +60,19 @@ $(function(){
                     min = min +1;
 
                     boxMin.html('<span  class="min" style= "padding: 0 5px">' +min+ '</span>');
+                } else if(seg == 0 && mil ==99){
+                    mil = 0;
+                    boxMil.html('<span class="mil" style= "padding: 0 5px">' +mil+ '</span>');
+                    clearInterval(play); 
                 }
 
                 if(seg <10){
 
                     boxSeg.html('<span class="seg" style= "padding: 0 5px">0' +seg+ '&nbsp :</span>');
                 } 
+                
 
-                if(seg == 0 && mil ==99){
-                    mil = 0;
-                    boxMil.html('<span class="mil" style= "padding: 0 5px"> 00 </span>');
-                    boxSeg.html('<span class="seg" style= "padding: 0 5px"> 00 &nbsp:</span>');
-                    clearInterval(play); 
-                }
             },10);
         },1000);
     }); 
-
-
-
 }); 
