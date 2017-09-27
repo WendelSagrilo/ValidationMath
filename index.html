@@ -8,10 +8,11 @@
     </head>
 
     <body>
-        <div class="box-content">
-            <div class="content">
+        <!-- MENU INICIAL -->
+        <div class="box-content" id="boxContent">
+            <div class="content" id="contentStart">
             
-                <p class="text" id="text">rem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Le</p>
+                <p class="text" id="text">rem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled   it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Le</p>
 
                 
                     <button class="btn" id="btn">Start!</button>
@@ -19,8 +20,63 @@
             </div>
         </div>
 
+
+        <!-- GAME -->
+
+        <div class="game-content" id="game">
+            
+            <!-- CRONOMETRO -->
+            <div class="timer" id="timer">
+                <span class="min" id="min">00</span> <span>:</span>
+                <span class="seg" id="seg">00</span> <span>:</span>
+                <span class="mil" id="mil">000</span>
+            </div>
+
+            <!-- CONTAS -->
+            
+                <div class="box-operation">
+                    
+                    <span class="number1" id="number1">000</span>
+
+                    <span class="Operation" id="operation"> + </span>
+
+                    <span class="number2" id="number2">000</span> 
+                    <span>=</span>
+
+                    <div class="box-result">
+                        <input class="result" placeholder="Resultado..." id="result" type="number" >
+                    </div>
+
+                    <div class="box-status">
+                        <img class="status" src="assets/img/wrong.png">
+
+                    </div>
+                </div>
+        
+
+            <!-- NUMEROS -->
+                <div class="numbers">
+                    <button class="btn-number" id="btn1">1</button>
+                    <button class="btn-number" id="btn2">2</button>
+                    <button class="btn-number" id="btn3">3</button>
+                    <button class="btn-number" id="btn4">4</button>
+                    <button class="btn-number" id="btn5">5</button>
+                    <button class="btn-number" id="btn6">6</button>
+                    <button class="btn-number" id="btn7">7</button>
+                    <button class="btn-number" id="btn8">8</button>
+                    <button class="btn-number" id="btn9">9</button>
+                    <button class="btn-number" id="btn0">0</button>
+                </div>
+
+                <button class="submit" id="submit">Answer!</button>
+
+        </div>
+
+
+        <script src="assets/js/jquery-3.2.1.min.js"></script>
         <script src="assets/js/script.js"></script>
     </body>
+    
     <footer class="footer">
             <h2>copyright© Wendel Sagrilo </h2>
     </footer>
