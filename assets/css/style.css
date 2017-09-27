@@ -306,10 +306,59 @@ body{
 }
 
 /* Media Responsive Content Game*/
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1023px) {
     .box-operation{
         font-size: 2em;
     }
+}
+
+@media screen and (max-width: 670px) {
+    .status{
+        display: none;
+    }
+
+    .box-result{
+        font-size: medium;
+    }
+}
+
+@media screen and (max-width: 464px) {
+    .game-content{
+        height: 85vh;
+    }
+
+    .number2{
+        margin-bottom: 10px;
+    }
+
+    .result{
+        font-size: medium;
+    }
+
+    .box-operation{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box-result{
+        margin: auto;
+    }
+
+    .igual{
+        display: none;
+    }
+    .status{
+        display: none;
+    }
+
+    .numbers{
+        height: 30%;
+    }
+
+    .btn-number{
+        font-size: small;
+    }
+
 }
 
 @font-face {
