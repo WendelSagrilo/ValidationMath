@@ -8,31 +8,44 @@
     </head>
 
     <body>
-        <!-- MENU INICIAL -->
-        <div class="box-content" id="boxContent">
-            <div class="content" id="contentStart">
+            <!-- MENU INICIAL -->
+            <div class="start" id="start">
             
-                <p class="text" id="text">rem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled   it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Le</p>
+                <div class="box-content" id="boxContent">
+                    <div class="content" id="contentStart">
+                    
+                        <p class="text" id="text">rem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled   it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Le</p>
 
-                
-                    <button class="btn" id="btn">Start!</button>
-                
+                        
+                            <button class="btn" id="btn">Start!</button>
+                        
+                    </div>
+                </div>
             </div>
-        </div>
 
 
         <!-- GAME -->
-
-        <div class="game-content" id="game">
+        <div class= "game" id="game">
+            <div class="game-content" id="gameContent">
             
-            <!-- CRONOMETRO -->
-            <div class="timer" id="timer">
-                <span class="min" id="min">00</span> <span>:</span>
-                <span class="seg" id="seg">00</span> <span>:</span>
-                <span class="mil" id="mil">000</span>
-            </div>
+                <!-- CRONOMETRO -->
+                <div class="timer" id="timer">
+                    
+                    <div id="boxMin">
+                        <span class="min" id="min">00</span> <span>:</span>
+                     </div>
 
-            <!-- CONTAS -->
+                    <div id="boxSeg">
+                        <span class="seg" id="seg">29</span> <span>:</span>
+                    </div>
+
+                    <div id="boxMil">
+                        <span class="mil" id="mil">000</span>
+                    </div>
+
+                </div>
+
+                <!-- CONTAS -->
             
                 <div class="box-operation">
                     
@@ -54,7 +67,7 @@
                 </div>
         
 
-            <!-- NUMEROS -->
+                <!-- NUMEROS -->
                 <div class="numbers">
                     <button class="btn-number" id="btn1">1</button>
                     <button class="btn-number" id="btn2">2</button>
@@ -71,7 +84,7 @@
                 <button class="submit" id="submit">Answer!</button>
 
         </div>
-
+    </div>
 
         <script src="assets/js/jquery-3.2.1.min.js"></script>
         <script src="assets/js/script.js"></script>
