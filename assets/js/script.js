@@ -1,5 +1,6 @@
 $(function(){
     var btnStart = $('#btn');
+
     var timer = $("#timer");
 
     btnStart.on("click", function(){
@@ -33,7 +34,7 @@ $(function(){
             seg = 29;
             min = 0;       
 
-            var timer = setInterval(function(){
+            var play = setInterval(function(){
                 
                 if(seg < 15 && seg > 5){
                     boxMil.css("color", "yellow");                    
@@ -59,13 +60,14 @@ $(function(){
                     min = min +1;
 
                     boxMin.html('<span  class="min" style= "padding: 0 5px">' +min+ '</span>');
+                } else if(seg == 0 && mil ==99){
+                    mil = 0;
+                    boxMil.html('<span class="mil" style= "padding: 0 5px">' +mil+ '</span>');
+                    clearInterval(play); 
                 }
             },10);
         },1000);
     }); 
-
-    
-
 
 
 
