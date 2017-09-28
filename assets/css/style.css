@@ -4,9 +4,10 @@
 }
 
 body{
-    background-color: rgba(0, 0, 0, 0.8); 
+    background-image: url('../img/backgroundBody.png'); 
     background-size: cover;
     background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 /*Background Tela Inicial*/
@@ -70,6 +71,20 @@ body{
     color:black; 
     padding-top: 3px;
     box-shadow: none;
+}
+
+
+/*Transition*/
+.transition{
+    width:100vw;
+    height: 100vh;
+
+
+}
+
+.img-transition{
+    width:100vw;
+    height:100vh;
 }
 
 

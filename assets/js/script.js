@@ -8,11 +8,72 @@ $(function(){
     var result = $("#result");
         
 
-    btnStart.on("click", function(){
+    //Soundtracks Effects   
 
+    //Efeito Click do Botão Start
+    function audioClick(){
+        $("<audio></audio>").attr({
+            src: 'assets/sound/click.mp3',
+            autoplay: 'autoplay',
+        });
+    }
+
+    //Efeito Hover do Botão Start
+    function audioHover(){
+        $("<audio></audio>").attr({
+            src: 'assets/sound/tick.mp3',
+            autoplay: 'autoplay',
+        });
+    }
+
+    //Efeito Transition
+    function audioTransition(){
+        $("<audio></audio>").attr({
+            src: 'assets/sound/transition.wav',
+            autoplay: 'autoplay',
+        });
+    }
+
+
+
+    //Efeito Hover do Botão Start
+    btnStart.hover(function(){
+        audioHover();
+    }, function(){
+
+    });
+
+    //Transition
+    function transitionFade(){
+        backgroundStart.fadeOut(50);
+    }
+
+    function transitionUp(){
+        var img = $("#boxTransition");
+
+        img.slideUp(600);
+    }
+
+
+    
+
+    //Inicio do Jogo
+    btnStart.on("click", function(){
+        btnStart.css("display", "none");
+        $("#transition").css("display", "block");
+        audioTransition();
+        transitionFade();
+        transitionUp();
+        backgroundStart.css("display", "none");
         var startContent = $('#boxContent');  
-        startContent.fadeOut(600);
-        backgroundStart.fadeOut(600);
+        
+     
+
+
+        setTimeout(function(){
+            $("#boxTransition").remove();
+        },600);
+
 
         setTimeout(function(){
             //Troca de Backgrounds  
@@ -82,8 +143,18 @@ $(function(){
 
         //Botões dos Numeros
         
-        btnNumber.on("click", function(){
+
+        btnNumber.hover(function(){
+            audioHover();
+        }, function(){
             
+        });
+
+        btnNumber.on("click", function(){
+
+            audioClick();
+
+
             numberOld = result.val();
 
             var number = this.value;
