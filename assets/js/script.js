@@ -4,6 +4,9 @@ $(function(){
     var backgroundGame = $("#game");
     var backgroundStart = $("#start");
     var timer = $("#timer");
+    var btnNumber = $(".btn-number");
+    var result = $("#result");
+        
 
     btnStart.on("click", function(){
 
@@ -78,18 +81,28 @@ $(function(){
 
 
         //Botões dos Numeros
-        var btnNumber = $(".btn-number");
         
         btnNumber.on("click", function(){
             
-            var result = $("#result");
             numberOld = result.val();
 
             var number = this.value;
-            result.val(number+numberOld);
+            result.val(numberOld+number);
             
         });
         
+        //Apagar Ultimo registro
+        var back = $("#backspace");
+        back.on("click",function(){
+        erase = $("#result").val();
+        $("#result").val(erase.slice(0, -1));
+        });
+        
+        //Apagar Todo Registro
+        var clear = $("#clear");
+        clear.on("click", function(){
+            $("#result").val("");
+        });
 
     }); 
 }); 
