@@ -46,6 +46,10 @@ $(function(){
                     boxSeg.css("color", "red");
                     boxMin.css("color", "red");
                 }
+
+                if(seg < 10){
+                    boxSeg.html('<span class="seg" style= "padding: 0 5px">0' +seg+ '</span>');
+                }
                 
                 mil = mil + 1;
                 boxMil.html('<span class="mil" style= "padding: 0 5px">' +mil+ '</span>');
@@ -61,10 +65,15 @@ $(function(){
                     boxMin.html('<span  class="min" style= "padding: 0 5px">' +min+ '</span>');
                 }
             },10);
+
+
+            if(seg == 0 && mil == 99){
+                clearInterval(timer);
+            }
         },1000);
     }); 
 
-    
+
 
 
 
