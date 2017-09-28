@@ -8,8 +8,8 @@ $(function(){
     btnStart.on("click", function(){
 
         var startContent = $('#boxContent');  
-        startContent.fadeOut(1000);
-        backgroundStart.fadeOut(1000);
+        startContent.fadeOut(600);
+        backgroundStart.fadeOut(600);
 
         setTimeout(function(){
             //Troca de Backgrounds  
@@ -63,7 +63,7 @@ $(function(){
                     boxMin.html('<span  class="min" style= "padding: 0 5px">' +min+ '</span>');
                 } else if(seg == 0 && mil ==99){
                     mil = 0;
-                    boxMil.html('<span class="mil" style= "padding: 0 5px">' +mil+ '</span>');
+                    boxMil.html('<span class="mil" style= "padding: 0 5px">0' +mil+ '</span>');
                     clearInterval(play); 
                 }
 
@@ -74,6 +74,22 @@ $(function(){
                 
 
             },10);
-        },1000);
+        },600);
+
+
+        //Botões dos Numeros
+        var btnNumber = $(".btn-number");
+        
+        btnNumber.on("click", function(){
+            
+            var result = $("#result");
+            numberOld = result.val();
+
+            var number = this.value;
+            result.val(number+numberOld);
+            
+        });
+        
+
     }); 
 }); 
