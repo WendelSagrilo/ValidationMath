@@ -4,7 +4,7 @@
 }
 
 body{
-    background-image: url('../img/backgroundBody.png'); 
+    background-color: rgba(0, 0, 0, 7); 
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -71,20 +71,6 @@ body{
     color:black; 
     padding-top: 3px;
     box-shadow: none;
-}
-
-
-/*Transition*/
-.transition{
-    width:100vw;
-    height: 100vh;
-
-
-}
-
-.img-transition{
-    width:100vw;
-    height:100vh;
 }
 
 
@@ -276,7 +262,8 @@ body{
 }
 
 .submit:active{
-    padding-top: 3px;
+    position: relative;
+    top: 3px;
     box-shadow: none;
     background: green;
 }
@@ -402,6 +389,26 @@ body{
 
     .btn-number{
         font-size: small;
+    }
+
+}
+
+@media screen and (max-width: 980px) {
+    #backspace, #clear{
+        font-size: medium;
+    }
+@media screen and (max-width: 880px) {
+    #backspace, #clear{
+        font-size: small;
+    }
+@media screen and (max-width: 650px) {
+    #backspace, #clear{
+        font-size: x-small;
+
+}
+@media screen and (max-width: 545px) {
+    #backspace, #clear{
+        font-size: xx-small;
     }
 
 }

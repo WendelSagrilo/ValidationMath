@@ -9,10 +9,10 @@
 
     <body>
         <!-- Soundtracks-->
-        <audio autoplay="autoplay" src="assets/sound/entrada.mp3" type="audio/mpeg"></audio>
+        <audio autoplay="autoplay" id="introSound" src="assets/sound/entrada.mp3" type="audio/mpeg"></audio>
 
             <!-- MENU INICIAL -->
-            <div class="start" id="start">
+            <div class="start" id="start" style="display:none;">
             
                 <div class="box-content" id="boxContent">
                     <div class="content" id="contentStart">
@@ -26,14 +26,6 @@
                 </div>
             </div>
 
-            <!-- Transition-->
-            <div class="transition" id="boxTransition">
-                
-                <img class="img-transition" id="transition" src="assets/img/transition.jpg">
-                    
-            </div>
-
-
         <!-- GAME -->
         <div class= "game" id="game">
             <div class="game-content" id="gameContent">
@@ -45,13 +37,13 @@
                     <div id="boxMin">
 
                       <div class="boxMin">
-						<span class="min" id="min">00</span> <span>:</span>
+						<span class="min" id="min">00</span>
                       </div>
                    </div>
                     
 					<div id="boxSeg"> 
 						<div class="boxSeg">
-							<span class="seg" id="seg">29</span> <span>:</span>
+							<span class="seg" id="seg">29</span> 
 						</div>
 					</div>
 

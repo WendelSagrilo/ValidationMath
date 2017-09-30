@@ -27,13 +27,23 @@ $(function(){
     }
 
     //Efeito Transition
-    function audioTransition(){
+    function audioGame(){
+        
         $("<audio></audio>").attr({
-            src: 'assets/sound/transition.wav',
+            src: 'assets/sound/game.mp3',
+            autoplay: 'autoplay',
+            loop: "loop",
+        });
+        
+    }
+
+    //Efeito da Resposta
+    function audioAnswer(){
+        $("<audio></audio>").attr({
+            src: 'assets/sound/answer.mp3',
             autoplay: 'autoplay',
         });
     }
-
 
 
     //Efeito Hover do Botão Start
@@ -44,42 +54,32 @@ $(function(){
     });
 
     //Transition
-    function transitionFade(){
-        backgroundStart.fadeOut(50);
+
+    function transitionFadeIn(remove){
+        backgroundStart.fadeIn(4000);
+    }
+    transitionFadeIn()
+
+    function transitionFadeOut(){
+        backgroundStart.fadeOut(2000);
+
     }
 
-    function transitionUp(){
-        var img = $("#boxTransition");
-
-        img.slideUp(600);
-    }
-
-
-    
 
     //Inicio do Jogo
     btnStart.on("click", function(){
         btnStart.css("display", "none");
-        $("#transition").css("display", "block");
-        audioTransition();
-        transitionFade();
-        transitionUp();
-        backgroundStart.css("display", "none");
-        var startContent = $('#boxContent');  
+        $("#introSound").remove();
+        backgroundStart.remove();
+        audioGame();
+        transitionFadeOut();
+        transitionFadeIn();
+
         
-     
-
-
-        setTimeout(function(){
-            $("#boxTransition").remove();
-        },600);
-
 
         setTimeout(function(){
             //Troca de Backgrounds  
            
-            
-            backgroundStart.css("display", "none");
             backgroundGame.css("display", "block");
             gameContent.css("display", "block");
             
@@ -114,31 +114,32 @@ $(function(){
                 }
                 
                 mil = mil + 1;
-                boxMil.html('<span class="mil" style= "padding: 0 5px">' +mil+ '</span>');
+               
+                boxMin.html('<span  class="min">0' +min+ ':</span>');
+                boxSeg.html('<span class="seg">' +seg+ ':</span>');
+                boxMil.html('<span class="mil" >' +mil+ '</span>');
+
 
                 if(mil > 99){
                     mil = 0;
                     seg = seg - 1;
-                    boxSeg.html('<span class="seg" style= "padding: 0 5px">' +seg+ '&nbsp:</span>');
                 } else if(seg > 60){
                     seg = 0;
                     min = min +1;
-
-                    boxMin.html('<span  class="min" style= "padding: 0 5px">' +min+ '</span>');
                 } else if(seg == 0 && mil ==99){
                     mil = 0;
-                    boxMil.html('<span class="mil" style= "padding: 0 5px">0' +mil+ '</span>');
+                    boxMil.html('<span class="min" >0' +mil+ '</span>');
                     clearInterval(play); 
                 }
 
                 if(seg <10){
 
-                    boxSeg.html('<span class="seg" style= "padding: 0 5px">0' +seg+ '&nbsp :</span>');
+                    boxSeg.html('<span class="seg">0' +seg+ ':</span>');
                 } 
                 
 
             },10);
-        },600);
+        },2000);
 
 
         //Botões dos Numeros
@@ -176,4 +177,11 @@ $(function(){
         });
 
     }); 
+
+    var answer = $("#submit");
+    answer.on("click", function(){
+        audioAnswer();
+
+
+    });
 }); 
