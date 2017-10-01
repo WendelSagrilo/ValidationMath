@@ -126,11 +126,6 @@ body{
     font-size: small;
 }
 
-.test{
-    display: flex;
-    align-items: center;
-}
-
 /*Box dos numeros*/
 .box-operation{
     background-color: rgba(0,0, 0, 0.7);
@@ -229,6 +224,7 @@ body{
 #clear{
     background-color: rgba(255,0,0,0.6);
 }
+
 #clear:hover{
     background-color: red;
 }
@@ -237,6 +233,11 @@ body{
 }
 #backspace:hover{
     background-color: yellow;
+}
+
+.icon-btn{
+    width:33.3%;
+    height:60%;
 }
 
 
@@ -389,26 +390,6 @@ body{
 
     .btn-number{
         font-size: small;
-    }
-
-}
-
-@media screen and (max-width: 980px) {
-    #backspace, #clear{
-        font-size: medium;
-    }
-@media screen and (max-width: 880px) {
-    #backspace, #clear{
-        font-size: small;
-    }
-@media screen and (max-width: 650px) {
-    #backspace, #clear{
-        font-size: x-small;
-
-}
-@media screen and (max-width: 545px) {
-    #backspace, #clear{
-        font-size: xx-small;
     }
 
 }

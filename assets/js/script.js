@@ -10,7 +10,7 @@ $(function(){
 
     //Soundtracks Effects   
 
-    //Efeito Click do Botão Start
+    //Soundtrack do Botão Start
     function audioClick(){
         $("<audio></audio>").attr({
             src: 'assets/sound/click.mp3',
@@ -18,7 +18,7 @@ $(function(){
         });
     }
 
-    //Efeito Hover do Botão Start
+    //Soundtrack Hover do Botão Start
     function audioHover(){
         $("<audio></audio>").attr({
             src: 'assets/sound/tick.mp3',
@@ -26,7 +26,7 @@ $(function(){
         });
     }
 
-    //Efeito Transition
+    //Soundtrack Transition
     function audioGame(){
         
         $("<audio></audio>").attr({
@@ -37,13 +37,24 @@ $(function(){
         
     }
 
-    //Efeito da Resposta
+    //Soundtrack da Resposta
     function audioAnswer(){
         $("<audio></audio>").attr({
             src: 'assets/sound/answer.mp3',
             autoplay: 'autoplay',
         });
     }
+    
+    
+    //Soundtrack do Timer
+    function audioTimer(){
+        $("<audio></audio>").attr({
+            src: 'assets/sound/timer.mp3',
+            autoplay: 'autoplay',
+            id: 'audioTimer',
+        });      
+    }
+
 
 
     //Efeito Hover do Botão Start
@@ -53,10 +64,10 @@ $(function(){
 
     });
 
-    //Transition
+    //Transition Fade
 
     function transitionFadeIn(remove){
-        backgroundStart.fadeIn(4000);
+        backgroundStart.fadeIn(2000);
     }
     transitionFadeIn()
 
@@ -70,16 +81,13 @@ $(function(){
     btnStart.on("click", function(){
         btnStart.css("display", "none");
         $("#introSound").remove();
-        backgroundStart.remove();
-        audioGame();
         transitionFadeOut();
-        transitionFadeIn();
+        audioGame();
 
         
 
         setTimeout(function(){
             //Troca de Backgrounds  
-           
             backgroundGame.css("display", "block");
             gameContent.css("display", "block");
             
@@ -95,8 +103,8 @@ $(function(){
             var boxMin = $("#boxMin");
 
 
-            mil = 0;
-            seg = 29;
+            mil = 99;
+            seg = 30;
             min = 0;       
 
             var play = setInterval(function(){
@@ -111,6 +119,7 @@ $(function(){
                     boxMil.css("color", "red");                    
                     boxSeg.css("color", "red");
                     boxMin.css("color", "red");
+
                 }
                 
                 mil = mil + 1;
@@ -123,10 +132,12 @@ $(function(){
                 if(mil > 99){
                     mil = 0;
                     seg = seg - 1;
+                    audioTimer();
+                    //Precisa melhorar o desempenho!!!!
                 } else if(seg > 60){
                     seg = 0;
                     min = min +1;
-                } else if(seg == 0 && mil ==99){
+                        } else if(seg == 0 && mil ==99){
                     mil = 0;
                     boxMil.html('<span class="min" >0' +mil+ '</span>');
                     clearInterval(play); 
@@ -139,7 +150,7 @@ $(function(){
                 
 
             },10);
-        },2000);
+        },3000);
 
 
         //Botões dos Numeros
@@ -163,14 +174,14 @@ $(function(){
             
         });
         
-        //Apagar Ultimo registro
+        //Apagar Ultimo registro (Backspace)
         var back = $("#backspace");
         back.on("click",function(){
         erase = $("#result").val();
         $("#result").val(erase.slice(0, -1));
         });
         
-        //Apagar Todo Registro
+        //Apagar Todo Registro (CLEAR)
         var clear = $("#clear");
         clear.on("click", function(){
             $("#result").val("");
@@ -181,7 +192,5 @@ $(function(){
     var answer = $("#submit");
     answer.on("click", function(){
         audioAnswer();
-
-
     });
 }); 
