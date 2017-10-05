@@ -8,8 +8,11 @@
     </head>
 
     <body>
+        <!-- Soundtracks-->
+        <audio autoplay="autoplay" id="introSound" src="assets/sound/entrada.mp3" type="audio/mpeg"></audio>
+
             <!-- MENU INICIAL -->
-            <div class="start" id="start">
+            <div class="start" id="start" style="display:none;">
             
                 <div class="box-content" id="boxContent">
                     <div class="content" id="contentStart">
@@ -23,7 +26,6 @@
                 </div>
             </div>
 
-
         <!-- GAME -->
         <div class= "game" id="game">
             <div class="game-content" id="gameContent">
@@ -35,13 +37,13 @@
                     <div id="boxMin">
 
                       <div class="boxMin">
-						<span class="min" id="min">00</span> <span>:</span>
+						<span class="min" id="min">00</span>
                       </div>
                    </div>
                     
 					<div id="boxSeg"> 
 						<div class="boxSeg">
-							<span class="seg" id="seg">29</span> <span>:</span>
+							<span class="seg" id="seg">29</span> 
 						</div>
 					</div>
 
@@ -86,9 +88,13 @@
                     <button class="btn-number" value="7" id="btn7">7</button>
                     <button class="btn-number" value="8" id="btn8">8</button>
                     <button class="btn-number" value="9" id="btn9">9</button>
-                    <button class="btn-number" id="clear">CLEAR</button>
+                    <button class="btn-number" id="clear">
+                        <img class="icon-btn" src="assets/img/clear.png">
+                    </button>
                     <button class="btn-number" value="0" id="btn0">0</button>
-                    <button class="btn-number" id="backspace">BACKSPACE</button>
+                    <button class="btn-number" id="backspace">
+                        <img class="icon-btn" src="assets/img/backspace.png">
+                    </button>
                 </div>
 
                 <button class="submit" id="submit">Answer!</button>
