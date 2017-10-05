@@ -8,15 +8,19 @@
     </head>
 
     <body>
-        <!-- Soundtracks-->
-        <audio autoplay="autoplay" id="introSound" src="assets/sound/entrada.mp3" type="audio/mpeg"></audio>
-
             <!-- MENU INICIAL -->
             <div class="start" id="start" style="display:none;">
             
                 <div class="box-content" id="boxContent">
+                    <!-- Sound Off-->
+                    <div class="sound-off" id="soundOff">
+                        <img src="assets/img/soundOff.png" class="img-sound-off" id="ImgSoundOff">
+                    </div>
+
+                    <!--Conteúdo da Página -->
                     <div class="content" id="contentStart">
-                    
+
+                     
                         <p class="text" id="text">rem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled   it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Le</p>
 
                         
@@ -28,6 +32,7 @@
 
         <!-- GAME -->
         <div class= "game" id="game">
+          
             <div class="game-content" id="gameContent">
             
                 <!-- CRONOMETRO -->
@@ -103,6 +108,7 @@
     </div>
 
         <script src="assets/js/jquery-3.2.1.min.js"></script>
+        <script src="assets/js/soundtrack.js"></script>
         <script src="assets/js/script.js"></script>
     </body>
 
