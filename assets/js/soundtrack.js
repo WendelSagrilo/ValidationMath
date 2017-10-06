@@ -48,7 +48,6 @@ btnNumber.on("click", function(){
         
     }else {
     }if(playClick && dir == off){
-        console.log(dir);
         playClick.play();
     }else{
     } if(dir == on){
