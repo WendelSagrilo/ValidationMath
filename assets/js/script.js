@@ -85,7 +85,7 @@ $(function(){
             min = 0;       
 
             var play = setInterval(function(){
-                /
+                
             if(seg < 15 && seg > 5){
                 boxMil.css("color", "yellow");                    
                 boxSeg.css("color", "yellow");
