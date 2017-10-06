@@ -1,81 +1,86 @@
- $(function(){
+var soundOff = $("#soundOff");
+var mute = false;
+var btnNumber = $(".btn-number");
 
-    var soundOff = $("#soundOff");
+//Intro Sound
+intro(false);
+var playIntro = document.getElementById("intro");
+playIntro.play();
 
 
-    //Soundtrack Intro
-    function intro(muted){
-      var audio =   $("<audio></audio>").attr({
-            src: 'assets/sound/entrada.mp3',
-            autoplay: 'autoplay',
-            id: 'introJs',
-        });
-
-        if(muted == true){
-          audio.muted;
-        }
+//Click Sound
+audioClick(false);
+var playClick = document.getElementById("click");
+btnNumber.on("click", function(){
+    if(playClick){
+    playClick.pause();
+    playClick.currentTime = 0;
     }
-
-    intro();
-
-    function pauseSound(audio){
-        console.log(audio);
-    }
+    playClick.play();
+});
 
 
+//Soundtrack Intro
+function intro(mute){
+    if(mute == false){
+    var audio = document.createElement("audio");
+    audio.setAttribute("src", "assets/sound/intro.mp3");
+    audio.setAttribute("id", "intro");
+    document.body.appendChild(audio);
+    
+} else{
+    var pause = document.getElementById("intro").pause();
+ 
+}
+}
     //Soundtrack do Botão Start
-    function audioClick(muted){
-        if(muted == true){
-            return;
+    function audioClick(mute){
+        if(mute == false){
+            var audio = document.createElement("audio");
+            audio.setAttribute("src", "assets/sound/click.mp3");
+            audio.setAttribute("id", "click");
+            document.body.appendChild(audio);
+            
+        } else{
+            var pause = document.getElementById("click").pause();
+         
         }
-
-        $("<audio></audio>").attr({
-            src: 'assets/sound/click.mp3',
-            autoplay: 'autoplay',
-        });
     }
-    var btnNumber = $(".btn-number");
-    btnNumber.on("click", function(){
-            audioClick();
-        });
-
     //Soundtrack Hover do Botão Start
-    function audioHover(muted){
-        $("<audio></audio>").attr({
-            src: 'assets/sound/tick.mp3',
-            autoplay: 'autoplay',
-            id: "teste1",
-        });
-
-         if(muted == true){
-          
+    function audioHover(){
+        if(mute == false){
+            var audio = document.createElement("audio");
+            audio.setAttribute("src", "assets/sound/audioHover.mp3");
+            audio.setAttribute("id", "audioHover");
+            document.body.appendChild(audio);
+            
+        } else{
+            var pause = document.getElementById("audioHover").pause();
+         
         }
-    }
+    }/*
      btnNumber.hover(function(){
         audioHover();
         }, function(){
             });
-
+*/
     //Soundtrack Transition
-    function audioGame(muted){
+    function audioGame(){
         $("<audio></audio>").attr({
             src: 'assets/sound/game.mp3',
             autoplay: 'autoplay',
             loop: "loop",
-            id: "teste",
+            class: 'Sound',
         });
-
-        if(muted == true){
-            $("#teste").pause();
-        }
         
     }
 
     //Soundtrack da Resposta
-    function audioAnswer(muted){
+    function audioAnswer(){
         $("<audio></audio>").attr({
             src: 'assets/sound/answer.mp3',
             autoplay: 'autoplay',
+            class: 'Sound',
         });
     }
 
@@ -86,16 +91,17 @@
 
 
     //Soundtrack do Timer
-    function audioTimer(muted){
+    function audioTimer(){
         $("<audio></audio>").attr({
             src: 'assets/sound/timer.mp3',
             autoplay: 'autoplay',
-            id: 'audioTimer',
-        });      
+            class: 'Sound',
+        });   
+        
     }
 
     
- });
+
 
 
 
