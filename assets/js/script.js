@@ -55,7 +55,9 @@ $(function(){
         transitionFadeOut();
         playIntro.remove();
         keySound = false;
-        audioGame.play();
+        if(dir == off){
+            audioGame.play();
+        }
 
 
         setTimeout(function(){
