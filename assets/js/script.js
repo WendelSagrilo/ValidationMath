@@ -5,27 +5,37 @@ $(function(){
     var backgroundStart = $("#start");
     var timer = $("#timer");
     var result = $("#result");
-    var btnNumber = $(".btn-number");
+    var sound = document.getElementsByTagName("audio"); 
+    var keySound = true;
+    
+       
 
-    //Icon Soundtrack 
+    //Soundtrack// 
     $("#ImgSoundOff").on("click", function(){
         var on = "assets/img/soundOn.png";
         var off = "assets/img/soundOff.png";
         var dir = $("#ImgSoundOff").attr("src");
-        console.log($("#soundOff"));
 
+    //Ação de MUDO/SOM
         if(dir == on){
+            //SOM
+            console.log("SOM");
             $("#ImgSoundOff").attr("src", off);
-            audioClick(true);
-            audioHover(true);
-            audioGame(true);
-            audioAnswer(true);
-            audioTimer(true);
-        } else{
+
+            if(keySound == true){
+                playIntro.play();
+            }else{
+                audioGame.play();
+            }
+            
+        }else if(dir == off){
+            //MUDO
+            console.log("MUDO");
             $("#ImgSoundOff").attr("src", on);
+            playIntro.pause();
+            audioGame.pause();     
         }
-        
-    });
+    });      
 
 
     //Transition Fade
@@ -43,15 +53,21 @@ $(function(){
     btnStart.on("click", function(){
         btnStart.css("display", "none");
         transitionFadeOut();
-        var soundOff = $("#ImgSoundOff");
-        soundOff.attr("class", "sound-off-2");
-        $("#game").prepend(soundOff);
+        playIntro.remove();
+        keySound = false;
+        audioGame.play();
 
-      setTimeout(function(){
+
+        setTimeout(function(){
+            //Botão de Mute na tela do Jogo
+            var soundOff = $("#ImgSoundOff");
+            soundOff.attr("class", "sound-off-2");
+            $("#game").prepend(soundOff);
+
             //Troca de Backgrounds  
             backgroundGame.css("display", "block");
             gameContent.css("display", "block");
-            
+                
 
             //Cronometro
             var mil = $("#mil").val;
@@ -69,61 +85,54 @@ $(function(){
             min = 0;       
 
             var play = setInterval(function(){
-                
-                if(seg < 15 && seg > 5){
-                    boxMil.css("color", "yellow");                    
-                    boxSeg.css("color", "yellow");
-                    boxMin.css("color", "yellow");
+                /
+            if(seg < 15 && seg > 5){
+                boxMil.css("color", "yellow");                    
+                boxSeg.css("color", "yellow");
+                boxMin.css("color", "yellow");
+                        
+            }else if(seg < 5){
+                boxMil.css("color", "red");                    
+                boxSeg.css("color", "red");
+                boxMin.css("color", "red");
+
+            }
                     
-                }else if(seg < 5){
-                    
-                    boxMil.css("color", "red");                    
-                    boxSeg.css("color", "red");
-                    boxMin.css("color", "red");
-
-                }
+            mil = mil + 1;
                 
-                mil = mil + 1;
-               
-                boxMin.html('<span  class="min">0' +min+ ':</span>');
-                boxSeg.html('<span class="seg">' +seg+ ':</span>');
-                boxMil.html('<span class="mil" >' +mil+ '</span>');
+            boxMin.html('<span  class="min">0' +min+ ':</span>');
+            boxSeg.html('<span class="seg">' +seg+ ':</span>');
+            boxMil.html('<span class="mil" >' +mil+ '</span>');
 
 
-                if(mil > 99){
-                    mil = 0;
-                    seg = seg - 1;
+            if(mil > 99){
+                mil = 0;
+                seg = seg - 1;
+                dir = $("#ImgSoundOff").attr("src");
+                console.log(on)
+                if(dir == off){
                     audioTimer();
-                    //Precisa melhorar o desempenho!!!!
-                } else if(seg > 60){
-                    seg = 0;
-                    min = min +1;
-                        } else if(seg == 0 && mil ==99){
-                    mil = 0;
-                    boxMil.html('<span class="min" >0' +mil+ '</span>');
-                    clearInterval(play); 
-                }
-
-                if(seg <10){
-
-                    boxSeg.html('<span class="seg">0' +seg+ ':</span>');
+                }else{
                 } 
                 
-
-            },10);
-        },3000);
+            } else if(seg > 60){
+                    seg = 0;
+                    min = min +1;
+                    } else if(seg == 0 && mil ==99){
+                        mil = 0;
+                        boxMil.html('<span class="min" >0' +mil+ '</span>');
+                        clearInterval(play); 
+                    }
+                    if(seg <10){
+                        boxSeg.html('<span class="seg">0' +seg+ ':</span>');
+                    }  
+                },10);
+            },3000);
 
 
         //Botões dos Numeros
-        
-
-        
-
         btnNumber.on("click", function(){
-
-
             var numberOld = result.val();
-
             var number = this.value;
             result.val(numberOld+number);
             
@@ -143,6 +152,5 @@ $(function(){
         });
 
     }); 
-
-    
 }); 
+
