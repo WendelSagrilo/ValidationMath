@@ -6,34 +6,34 @@ $(function(){
     var timer = $("#timer");
     var result = $("#result");
     var sound = document.getElementsByTagName("audio"); 
+    var keySound = true;
     
        
 
-    //Icon Soundtrack 
+    //Soundtrack// 
     $("#ImgSoundOff").on("click", function(){
         var on = "assets/img/soundOn.png";
         var off = "assets/img/soundOff.png";
         var dir = $("#ImgSoundOff").attr("src");
 
+    //Ação de MUDO/SOM
         if(dir == on){
             //SOM
             console.log("SOM");
-            $("#ImgSoundOff").attr("src", off);           
+            $("#ImgSoundOff").attr("src", off);
+
+            if(keySound == true){
+                playIntro.play();
+            }else{
+                audioGame.play();
+            }
             
-        for(var i = 0; i < sound.length; i++){
-            sound[i].play();
-        }
-        
         }else if(dir == off){
             //MUDO
             console.log("MUDO");
             $("#ImgSoundOff").attr("src", on);
-            
-            for(var i = 0; i < sound.length; i++){
-            sound[i].pause();
-            document.getElementById("click").pause();
-            console.log(sound);
-            }      
+            playIntro.pause();
+            audioGame.pause();     
         }
     });      
 
@@ -53,6 +53,9 @@ $(function(){
     btnStart.on("click", function(){
         btnStart.css("display", "none");
         transitionFadeOut();
+        playIntro.remove();
+        keySound = false;
+        audioGame.play();
 
 
         setTimeout(function(){
@@ -82,7 +85,7 @@ $(function(){
             min = 0;       
 
             var play = setInterval(function(){
-                    
+                /
             if(seg < 15 && seg > 5){
                 boxMil.css("color", "yellow");                    
                 boxSeg.css("color", "yellow");
@@ -105,7 +108,12 @@ $(function(){
             if(mil > 99){
                 mil = 0;
                 seg = seg - 1;
-                audioTimer();
+                dir = $("#ImgSoundOff").attr("src");
+                console.log(on)
+                if(dir == off){
+                    audioTimer();
+                }else{
+                } 
                 
             } else if(seg > 60){
                     seg = 0;
