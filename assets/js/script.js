@@ -19,7 +19,6 @@ $(function(){
     //Ação de MUDO/SOM
         if(dir == on){
             //SOM
-            console.log("SOM");
             $("#ImgSoundOff").attr("src", off);
 
             if(keySound == true){
@@ -30,7 +29,6 @@ $(function(){
             
         }else if(dir == off){
             //MUDO
-            console.log("MUDO");
             $("#ImgSoundOff").attr("src", on);
             playIntro.pause();
             audioGame.pause();     
@@ -111,7 +109,6 @@ $(function(){
                 mil = 0;
                 seg = seg - 1;
                 dir = $("#ImgSoundOff").attr("src");
-                console.log(on)
                 if(dir == off){
                     audioTimer();
                 }else{
