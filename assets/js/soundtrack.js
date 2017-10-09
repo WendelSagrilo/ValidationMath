@@ -48,7 +48,6 @@ btnNumber.on("click", function(){
         
     }else {
     }if(playClick && dir == off){
-        console.log(dir);
         playClick.play();
     }else{
     } if(dir == on){
@@ -76,10 +75,6 @@ answer.on("click", function(){
     }
 
 });
-
-//Timer Sound
-
-
 
 //Soundtrack Intro
 function intro(){
@@ -112,7 +107,7 @@ function audioGame(){
     audio.setAttribute("loop", "loop");
     document.body.appendChild(audio);
 }
-
+/* 
     //Soundtrack da Resposta
 function audioAnswer(){
     var audio = document.createElement("audio");
@@ -120,6 +115,7 @@ function audioAnswer(){
     audio.setAttribute("id", "answer");
     document.body.appendChild(audio);
 }
+*/
 
     //Soundtrack do Timer
 function audioTimer(){
@@ -128,6 +124,16 @@ function audioTimer(){
     audio.setAttribute("autoplay", "autoplay");
     audio.setAttribute("id", "timerSound");
     document.body.appendChild(audio);
+}
+
+//Soundtrack Explosion
+function audioExplosion(){
+    var audio = document.createElement("audio");
+    audio.setAttribute("src", "assets/sound/explosion.mp3");
+    audio.setAttribute("autoplay", "autoplay");
+    audio.setAttribute("id", "audioExplosion");
+    document.body.appendChild(audio);
+
 }
 
     

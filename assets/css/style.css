@@ -7,7 +7,7 @@ body{
     background-color: rgba(0, 0, 0, 7); 
     background-size: cover;
     background-repeat: no-repeat;
-    overflow: hidden;
+    
 }
 
 /*Background Tela Inicial*/
@@ -114,6 +114,9 @@ body{
     width: 100vw;
     height: 100vh;
     display: none;
+    z-index: -1;
+    position: absolute;
+    top:0;
 }
 
 /*Box do Game*/
@@ -154,7 +157,7 @@ body{
     font-size: x-large;
 }
 
-.mil{
+.cent{
     font-size: small;
 }
 
@@ -166,12 +169,23 @@ body{
     margin: auto;
     margin-top:50px;
     font-family: timer;
-    font-size: 4em;
+    font-size: 3em;
     color:white;
     box-shadow: 4px 4px 0 black;
-
-    
 }
+
+.operation{
+    width:22px;
+    height:22px;
+}
+
+.op{
+    width:22px;
+    height:22px;
+}
+
+
+
 /*Numero 1 da Requisição*/
 .number1{
     padding: 5px 5px;
@@ -213,8 +227,8 @@ body{
     
 }
 .status{
-    width:40%;
-    height:100%;
+    width:35%;
+    height:35px;
     margin: auto;
 }
 
@@ -306,7 +320,7 @@ body{
 /*Rodapé*/
 .footer{
     background-color: rgba(0,0,0,.8);
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     color: white;

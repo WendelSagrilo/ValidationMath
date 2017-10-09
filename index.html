@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Project 1</title>
+        <title>Validation Math</title>
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
 
@@ -42,19 +42,19 @@
                     <div id="boxMin">
 
                       <div class="boxMin">
-						<span class="min" id="min">00</span>
+						<span class="min" id="min">00:</span>
                       </div>
                    </div>
                     
 					<div id="boxSeg"> 
 						<div class="boxSeg">
-							<span class="seg" id="seg">29</span> 
+							<span class="seg" id="seg">00</span> 
 						</div>
 					</div>
 
-                    <div id="boxMil">
-						<div class="boxMil">
-							<span class="mil" id="mil">00</span>
+                    <div id="boxCent">
+						<div class="boxCent">
+							<span class="cent" id="cent">99</span>
 						</div>
                     </div>
 
@@ -66,7 +66,7 @@
                     
                     <span class="number1" id="number1">000</span>
 
-                    <span class="Operation" id="operation"> + </span>
+                    <div class="operation" id="operation"></div>
 
                     <span class="number2" id="number2">000</span> 
                     <span class="igual">=</span>
@@ -74,10 +74,9 @@
                     <div class="box-result">
                         <input class="result" placeholder="Resultado..." id="result" type="number" >
                     </div>
-
-                    <div class="box-status">
-                        <img class="status" src="assets/img/right.png">
-
+                    <!-- IMAGEM DA RESPOSTA -->
+                    <div class="box-status" id="boxStatus">
+                        
                     </div>
                 </div>
         
@@ -109,6 +108,7 @@
 
         <script src="assets/js/jquery-3.2.1.min.js"></script>
         <script src="assets/js/soundtrack.js"></script>
+        <script src="assets/js/operation.js"></script>
         <script src="assets/js/script.js"></script>
     </body>
 
