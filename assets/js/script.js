@@ -5,9 +5,7 @@ $(function(){
     var backgroundStart = $("#start");
     var keySound = true;
     var result = $("#result");
-    
-    
-       
+    result.val("");
 
     //Soundtrack// 
     $("#ImgSoundOff").on("click", function(){
@@ -79,8 +77,9 @@ $(function(){
         var boxMin = $("#boxMin");
 
 
-        cent = 99;
+        cent = 49;
         seg = 17;
+        boxCent.html('<span class="cent">' +cent+ '</span>');
         boxSeg.html('<span class="seg">' +seg+ ':</span>');
         min = 0;
          //Cronometro
@@ -91,15 +90,19 @@ $(function(){
                 boxCent.html('<span class="cent">' +cent+ '</span>');
 
                 //Game Over
-                if(min === 0 && seg === 0 && cent === 0){
+                if(min <= 0 && seg <= 0 && cent <= 0){
+                    backgroundGame.css("display", "none");
+                    $("#gameOver").css("display", "block");
+
                     if(dir == off){
                         audioGame.pause();
                         audioExplosion();
                     }else if(dir == on){
 
                     }
-                    boxCent.html('<span class="min" >0' +cent+ '</span>');
-                    boxSeg.html('<span class="seg">0' +seg+ ':</span>');
+                    boxCent.html('<span class="min" >00</span>');
+                    boxSeg.html('<span class="seg">00:</span>');
+                    boxMin.html('<span class="min" >00:</span>');
                     clearInterval(timer);
                     return;
                 }
@@ -187,29 +190,49 @@ $(function(){
             $("#result").val("");
         });
 
-        //Botão Answer
+        //Validação da Resposta
+        Insert(true);
+        var number1 = $("#number1").html();
+        var number2 = $("#number2").html();
+        var countRight = 0;
+        var countWrong = 0;
+        //Botão Answer 
         var answer = $("#submit");
         answer.on("click", function(){
-            var correct = 0;
-            var incorrect = 0;
-            var x = validation(result);
-            if (x == true){
+            var status = document.getElementById("boxStatus");
+            status.innerHTML = "";
+
+            var check = validation(result.val());
+
+            //Certa Resposta
+            if (check == true){
+                status.appendChild(imgRight);
+                countRight = countRight +1;
+                $("#scoreCorrect").html(countRight);
+
+                if(dir == off){
+                    audioAnswer(true);
+                }
+                $("#number1").html("");
+                $("#number2").html("");
+                $("#operation").html("");
+                result.val("");
+
+                Insert(true);
                 seg = seg+3;
+            //Resposta Errada
             }else{
+                countWrong = countWrong +1;
+                $("#scoreWrong").html(countWrong);
+                result.val("");
+                
+                if(dir == off){
+                    audioAnswer(false);
+                }
                 seg = seg-3;
+                
             }
         });
-
-
-        //Operation
-        
-        
-        boxNumber1.html('<span class="operation" id="operation">'+num1+'</span>');
-        boxOp.append('<span class="operation" id="operation">'+opId+'</span>');
-        boxNumber2.html('<span class="operation" id="operation">'+num2+'</span>');
-
-
-
 
     }); 
 }); 

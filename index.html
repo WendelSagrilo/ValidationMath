@@ -21,7 +21,23 @@
                     <div class="content" id="contentStart">
 
                      
-                        <p class="text" id="text">rem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled   it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Le</p>
+                        <p class="text" id="text">A base central de inteligencia de TchambsVille teve seu principal computador infectado por um vírus capaz de lançar seus mísseis contra seu próprio país.
+                        </p>
+
+
+                        <p class="text" id="text">A equipe Alpha de programadores já vinha trabalhando incessantemente para desvendar alguns padrões deste vírus para que pudessem desarmar o lançamento dos mísseis, então faltando cerca de 17,5 segundos para a explosão, eis que chega o Master Pika of Arabia, mais conhecido como "Eu", para pôr fim a este terrível pesadelo.
+                        </p>
+
+
+                        <p class="text" id="text">Os padrões desvendados até então foram: 
+                            <ul class="text-list">
+
+                                <li>-Resultados com Números Negativos, não precisam de sinal;</li>
+                                <li>-Resultados de Divisão, não necessitam do resto;</li>
+                                <li>-A cada acerto, somam-se 3 segundos;</li>
+                                <li>-A cada erro, subtraem-se 3 segundos;</li>
+                            </ul>
+                            </p>
 
                         
                             <button class="btn" id="btn">Start!</button>
@@ -34,41 +50,50 @@
         <div class= "game" id="game">
           
             <div class="game-content" id="gameContent">
-            
-                <!-- CRONOMETRO -->
-                <div class="timer" id="timer">
-                    
-
-                    <div id="boxMin">
-
-                      <div class="boxMin">
-						<span class="min" id="min">00:</span>
-                      </div>
-                   </div>
-                    
-					<div id="boxSeg"> 
-						<div class="boxSeg">
-							<span class="seg" id="seg">00</span> 
-						</div>
-					</div>
-
-                    <div id="boxCent">
-						<div class="boxCent">
-							<span class="cent" id="cent">99</span>
-						</div>
+                <div class="header">
+                    <!-- Score de Resposta Certa -->
+                    <div class="box-score">
+                        <span class="score" id="scoreCorrect">0</span>
                     </div>
+                    
+                
+                    <!-- CRONOMETRO -->
+                    <div class="timer" id="timer">
+                        <div id="boxMin">
+                            <div class="boxMin">
+                                <span class="min" id="min">00:</span>
+                            </div>
+                        </div>
+                        
+                        <div id="boxSeg"> 
+                            <div class="boxSeg">
+                                <span class="seg" id="seg">00</span> 
+                            </div>
+                        </div>
 
+                        <div id="boxCent">
+                            <div class="boxCent">
+                                <span class="cent" id="cent">99</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Score de resposta Errada -->
+                    <div class="box-score wrong" id="score-wrong">
+                        <span class="score" id="scoreWrong">0</span>
+                    </div>
                 </div>
+
+
 
                 <!-- CONTAS -->
             
                 <div class="box-operation">
                     
-                    <span class="number1" id="number1">000</span>
+                    <span class="number1" id="number1"></span>
 
                     <div class="operation" id="operation"></div>
 
-                    <span class="number2" id="number2">000</span> 
+                    <span class="number2" id="number2"></span> 
                     <span class="igual">=</span>
 
                     <div class="box-result">
@@ -103,6 +128,18 @@
 
                 <button class="submit" id="submit">Answer!</button>
 
+        </div>
+    </div>
+
+    <!--Game Over -->
+    <div class="game-over" id="gameOver">
+        <div class="try-again">
+            <h1 class="msg-over">Not Today, Not Tomorrow</h1>
+            <div class="box-btn-again">
+                <div>
+                    <a class="btn-again" href="index.html"><span class="continue">Try Again!!!</span></a>
+                </div>
+            </div>
         </div>
     </div>
 

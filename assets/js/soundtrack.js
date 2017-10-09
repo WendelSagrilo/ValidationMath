@@ -57,8 +57,7 @@ btnNumber.on("click", function(){
 });
 
 //Answer Sound
-audioAnswer();
-var playAnswer = document.getElementById("answer");
+/*var playAnswer = document.getElementById("answer");
 answer.on("click", function(){
     var dir = $("#ImgSoundOff").attr("src");
     if(dir == off){
@@ -74,7 +73,7 @@ answer.on("click", function(){
         playClick.pause();
     }
 
-});
+});*/
 
 //Soundtrack Intro
 function intro(){
@@ -135,6 +134,23 @@ function audioExplosion(){
     document.body.appendChild(audio);
 
 }
+
+//Soundtrack Answer
+function audioAnswer(answer){
+    if(answer == true){
+        var soundRight = document.createElement("audio");
+        soundRight.setAttribute("src", "assets/sound/correctAnswer.wav");
+        soundRight.setAttribute("autoplay", "autoplay");
+    
+    }else {
+        var soundWrong = document.createElement("audio");
+        soundWrong.setAttribute("src", "assets/sound/wrongAnswer.mp3");
+        soundWrong.setAttribute("autoplay", "autoplay");
+    }
+    
+
+}
+
 
     
 

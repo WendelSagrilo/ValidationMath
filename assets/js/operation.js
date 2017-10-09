@@ -1,7 +1,4 @@
-var boxNumber1 = $("#number1");
-var boxNumber2 = $("#number2");
-
-//Criação das Imagens das Operações
+//Criação das Imagens das Operações  e Status de Validação
 
 //Soma
 var imgAdd = document.createElement("img");
@@ -30,110 +27,229 @@ imgDiv.setAttribute("src", "assets/img/div.png");
 imgDiv.setAttribute("class", "op");
 imgDiv.setAttribute("id", "imgDiv");
 
-//Inserção dos valores
+//Resposta Certa
+var imgRight = document.createElement("img");
+imgRight.setAttribute("class", "status");
+imgRight.setAttribute("src", "assets/img/right.png");
+
+//Resposta Errada
+var imgWrong = document.createElement("img");
+imgWrong.setAttribute("class", "status");
+imgWrong.setAttribute("src", "assets/img/wrong.png");
+
+
+
+//Lógica da validação da resposta
+var result = 0;
+var boxNumber1 = $("#number1");
+var boxNumber2 = $("#number2");
 var boxOp = $("#operation");
+var input = true;
 
-var num1 = Math.floor((Math.random() * 10) + 1);
-var num2 = Math.floor((Math.random() * 10) + 1);
-           
-var op = Math.floor((Math.random() * 4) + 1);
-var opId = "";
-
-if(op == 1){
-    boxOp.append(imgAdd);
-} else{
-    if(op == 2){
-    boxOp.append(imgSub);
-    
-    } else if (op == 3){
-        boxOp.append(imgMult);
-        
-    } else if (op == 4){
-        boxOp.append(imgDiv);
-
-    } 
-}
-//Validação da Resposta//
-
-//Criação da Imagem
-
-var right = document.createElement("img");
-right.setAttribute("class", "status");
-right.setAttribute("src", "assets/img/right.png");
-
-
-var wrong = document.createElement("img");
-wrong.setAttribute("class", "status");
-wrong.setAttribute("src", "assets/img/wrong.png");
-
-//Criação do Efeito Sonoro
-
-var soundRight = document.createElement("audio");
-soundRight.setAttribute("src", "assets/audio/correctAnswer.wav");
-soundRight.setAttribute("autoplay", "autoplay");
-
-var soundWrong = document.createElement("audio");
-soundWrong.setAttribute("src", "assets/audio/wrongAnswer.mp3");
-soundWrong.setAttribute("autoplay", "autoplay");
 
 function validation(result){
+    var add = $("#imgAdd");
+    var sub = $("#imgSub");
+    var mult = $("#imgMult");
+    var div = $("#imgDiv");
+    var number1 = boxNumber1.html();
+    number1 = parseInt(number1);
+    var number2 = boxNumber2.html();
+    number2 = parseInt(number2);    
     var correctAnswer = 0;
-    var status = document.getElementById("boxStatus");
-    status.innerHTML = "";
+    
 
-    if(op == 1){
-        correctAnswer = num1 + num2;
-        if(correctAnswer == result.val()){
-            document.body.appendChild(soundRight);
-            status.appendChild(right);
-            return true;
-            
-        }else{
-            document.body.appendChild(soundWrong);
-            status.appendChild(wrong);
-            return false;
-        }
-
-    } else if(op == 2){
-            correctAnswer = num1 - num2;
-            if (correctAnswer < 0){
+    if(add.length > 0){
+        correctAnswer = (number1 + number2);
+        if(result == correctAnswer){
+        return true;
+    }}else { 
+        if(sub.length > 0){
+            correctAnswer = number1 - number2;
+            if(correctAnswer < 0){
                 correctAnswer = correctAnswer * (-1);
-            }
-            if(correctAnswer == result.val()){
-                
-                status.appendChild(right);
+            }if(result == correctAnswer){
                 return true;
-                
-            }else{
-                status.appendChild(wrong);
-                return false;
             }
-    
-        }else if(op == 3){
-            correctAnswer = num1 * num2;
-            if(correctAnswer == result.val()){
-                status.appendChild(right);
+        } else if(mult.length > 0){
+            correctAnswer = number1 * number2;
+            if(result == correctAnswer){
                 return true;
-                
-            }else{
-                status.appendChild(wrong);
-                return false;
+            }   
+            } else if(div.length > 0){
+                correctAnswer = number1 / number2;
+                correctAnswer = parseInt(correctAnswer);
+                if(result == correctAnswer){
+                    return true;
+                }
             }
-    
-        }else if(op == 4){
-            correctAnswer = num1 / num2;
-            correctAnswer = parseInt(correctAnswer);
-            if(correctAnswer == result.val()){
-                status.appendChild(right);
-                return true;
-                
-            }else{
-                status.appendChild(wrong);
-                return false;
-            }
-    
-        } 
-    
+        return false;
+    }
 }
-   
+
+
+function Insert(input){
+    if(input){
+        //Inserção dos valores
+        var num1 = 0;
+        var num2 = 0;
+                
+        var op = Math.floor((Math.random() * 4) + 1);
+        var countRight = $("#scoreCorrect").html();
+        console.log(countRight);
+        if(op == 1){
+            if(countRight >= 10){
+                num1 = Math.floor((Math.random() * 99) + 11);
+                num2 = Math.floor((Math.random() * 30) + 11);
+                boxNumber1.append(num1);
+                boxNumber2.append(num2);
+                boxOp.append(imgAdd);
+                return;
     
+            } else if(countRight >= 20){
+            num1 = Math.floor((Math.random() * 299) + 99);
+            num2 = Math.floor((Math.random() * 99) + 1);
+            boxNumber1.append(num1);
+            boxNumber2.append(num2);
+            boxOp.append(imgAdd);
+            return;
+        }
+        num1 = Math.floor((Math.random() * 10) + 1);
+        num2 = Math.floor((Math.random() * 10) + 1);
+        boxNumber1.append(num1);
+        boxNumber2.append(num2);
+        boxOp.append(imgSub);    
+    } 
+        
+        else{
+            if(op == 2){
+                if(countRight >= 10){
+                    num1 = Math.floor((Math.random() * 99) + 11);
+                    num2 = Math.floor((Math.random() * 30) + 11);
+                    boxNumber1.append(num1);
+                    boxNumber2.append(num2);
+                    boxOp.append(imgAdd);
+                    return;
+        
+                } else if(countRight >= 20){  
+                    num1 = Math.floor((Math.random() * 299) + 99);
+                    num2 = Math.floor((Math.random() * 99) + 1);
+                    boxNumber1.append(num1);
+                    boxNumber2.append(num2);
+                    boxOp.append(imgAdd);
+                    return;    
+                }
+                    
+                num1 = Math.floor((Math.random() * 10) + 1);
+                num2 = Math.floor((Math.random() * 10) + 1);
+                boxNumber1.append(num1);
+                boxNumber2.append(num2);
+                boxOp.append(imgSub);
+                
+            } else if (op == 3){
+                if(countRight >= 10){
+                    num1 = Math.floor((Math.random() * 99) + 11);
+                    num2 = Math.floor((Math.random() * 30) + 11);
+                    boxNumber1.append(num1);
+                    boxNumber2.append(num2);
+                    boxOp.append(imgAdd);
+                    return;
+                } else if(countRight >= 20){     
+                    num1 = Math.floor((Math.random() * 299) + 99);
+                    num2 = Math.floor((Math.random() * 99) + 1);
+                    boxNumber1.append(num1);
+                    boxNumber2.append(num2);
+                    boxOp.append(imgAdd);
+                    return;
+                }
+
+                num1 = Math.floor((Math.random() * 10) + 1);
+                num2 = Math.floor((Math.random() * 10) + 1);
+                boxNumber1.append(num1);
+                boxNumber2.append(num2);
+                boxOp.append(imgMult);
+                
+            } else if (op == 4){
+                if(countRight >= 10){
+                    num1 = Math.floor((Math.random() * 99) + 11);
+                    num2 = Math.floor((Math.random() * 30) + 11);
+                    boxNumber1.append(num1);
+                    boxNumber2.append(num2);
+                    boxOp.append(imgAdd);
+                    return;
+        
+                } else if(countRight >= 20){    
+                    num1 = Math.floor((Math.random() * 299) + 99);
+                    num2 = Math.floor((Math.random() * 99) + 1);
+                    boxNumber1.append(num1);
+                    boxNumber2.append(num2);
+                    boxOp.append(imgAdd);
+                } 
+                num1 = Math.floor((Math.random() * 10) + 1);
+                num2 = Math.floor((Math.random() * 10) + 1);
+                boxNumber1.append(num1);
+                boxNumber2.append(num2);
+                boxOp.append(imgDiv);
+
+            } 
+        }
+    }
+}
+
+
+
+
+
+
+//     if(op == 1){
+//         correctAnswer = num1 + num2;
+//         if(correctAnswer == result){
+//             return true;   
+//         }else{
+//             return false;
+//         }
+
+//     } else if(op == 2){
+//             correctAnswer = num1 - num2;
+//             if (correctAnswer < 0){
+//                 correctAnswer = correctAnswer * (-1);
+//             }
+//             if(correctAnswer == result.val()){
+                
+//                 return true;
+                
+//             }else{
+//                 status.appendChild(imgWrong);
+//                 return false;
+//             }
+
+//         }else if(op == 3){
+//             correctAnswer = num1 * num2;
+//             if(correctAnswer == result.val()){
+//                 status.appendChild(imgRight);
+//                 return true;
+                
+//             }else{
+//                 status.appendChild(imgWrong);
+//                 return false;
+//             }
+
+//         }else if(op == 4){
+//             correctAnswer = num1 / num2;
+//             correctAnswer = parseInt(correctAnswer);
+//             if(correctAnswer == result.val()){
+//                 status.appendChild(imgRight);
+//                 return true;
+                
+//             }else{
+                
+//                 return false;
+//             }
+
+//         } 
+
+//     } else{
+//         status.appendChild(imgWrong);
+//         return false;
+//     }
+
