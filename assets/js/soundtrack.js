@@ -57,8 +57,7 @@ btnNumber.on("click", function(){
 });
 
 //Answer Sound
-audioAnswer();
-var playAnswer = document.getElementById("answer");
+/*var playAnswer = document.getElementById("answer");
 answer.on("click", function(){
     var dir = $("#ImgSoundOff").attr("src");
     if(dir == off){
@@ -74,11 +73,7 @@ answer.on("click", function(){
         playClick.pause();
     }
 
-});
-
-//Timer Sound
-
-
+});*/
 
 //Soundtrack Intro
 function intro(){
@@ -111,7 +106,7 @@ function audioGame(){
     audio.setAttribute("loop", "loop");
     document.body.appendChild(audio);
 }
-
+/* 
     //Soundtrack da Resposta
 function audioAnswer(){
     var audio = document.createElement("audio");
@@ -119,6 +114,7 @@ function audioAnswer(){
     audio.setAttribute("id", "answer");
     document.body.appendChild(audio);
 }
+*/
 
     //Soundtrack do Timer
 function audioTimer(){
@@ -128,6 +124,33 @@ function audioTimer(){
     audio.setAttribute("id", "timerSound");
     document.body.appendChild(audio);
 }
+
+//Soundtrack Explosion
+function audioExplosion(){
+    var audio = document.createElement("audio");
+    audio.setAttribute("src", "assets/sound/explosion.mp3");
+    audio.setAttribute("autoplay", "autoplay");
+    audio.setAttribute("id", "audioExplosion");
+    document.body.appendChild(audio);
+
+}
+
+//Soundtrack Answer
+function audioAnswer(answer){
+    if(answer == true){
+        var soundRight = document.createElement("audio");
+        soundRight.setAttribute("src", "assets/sound/correctAnswer.wav");
+        soundRight.setAttribute("autoplay", "autoplay");
+    
+    }else {
+        var soundWrong = document.createElement("audio");
+        soundWrong.setAttribute("src", "assets/sound/wrongAnswer.mp3");
+        soundWrong.setAttribute("autoplay", "autoplay");
+    }
+    
+
+}
+
 
     
 
