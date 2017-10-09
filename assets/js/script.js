@@ -52,6 +52,7 @@ $(function(){
         transitionFadeOut();
         keySound = false;
         playIntro.pause();
+
         if(dir == off){
             audioGame.play();
         }
@@ -76,7 +77,6 @@ $(function(){
         var min = $("#min");
         var boxMin = $("#boxMin");
 
-
         cent = 49;
         seg = 17;
         boxCent.html('<span class="cent">' +cent+ '</span>');
@@ -85,6 +85,19 @@ $(function(){
          //Cronometro
         setTimeout(function(){
             var timer = setInterval(function(){ 
+
+            var play = setInterval(function(){
+                
+            if(seg < 15 && seg > 5){
+                boxMil.css("color", "yellow");                    
+                boxSeg.css("color", "yellow");
+                boxMin.css("color", "yellow");
+                        
+            }else if(seg < 5){
+                boxMil.css("color", "red");                    
+                boxSeg.css("color", "red");
+                boxMin.css("color", "red");
+r
 
                 cent = cent -1;
                 boxCent.html('<span class="cent">' +cent+ '</span>');
@@ -106,6 +119,14 @@ $(function(){
                     clearInterval(timer);
                     return;
                 }
+            if(mil > 99){
+                mil = 0;
+                seg = seg - 1;
+                dir = $("#ImgSoundOff").attr("src");
+                if(dir == off){
+                    audioTimer();
+                }else{
+                } 
                 
                 if(cent == 0){
                     cent = 99;
