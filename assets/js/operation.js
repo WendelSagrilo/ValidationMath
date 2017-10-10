@@ -99,6 +99,7 @@ function Insert(input){
         console.log(countRight);
         if(op == 1){
             if(countRight >= 10){
+                $("#gameContent").css("background", "rgba(150,50,50,.4));
                 num1 = Math.floor((Math.random() * 99) + 11);
                 num2 = Math.floor((Math.random() * 30) + 11);
                 boxNumber1.append(num1);
@@ -107,6 +108,7 @@ function Insert(input){
                 return;
     
             } else if(countRight >= 20){
+            $("#gameContent").css("background", "rgba(150,0,0,.4));
             num1 = Math.floor((Math.random() * 299) + 99);
             num2 = Math.floor((Math.random() * 99) + 1);
             boxNumber1.append(num1);
