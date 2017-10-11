@@ -96,21 +96,22 @@ function Insert(input){
                 
         var op = Math.floor((Math.random() * 4) + 1);
         var countRight = $("#scoreCorrect").html();
-        console.log(countRight);
         if(op == 1){
             if(countRight >= 10){
-                $("#gameContent").css("background", "rgba(150,50,50,.4));
+                var backgroundGame = $("#gameContent").css("background", "rgba(0,0,250,.4)");
+           
                 num1 = Math.floor((Math.random() * 99) + 11);
-                num2 = Math.floor((Math.random() * 30) + 11);
+                num2 = Math.floor((Math.random() * 12) + 11);
                 boxNumber1.append(num1);
                 boxNumber2.append(num2);
                 boxOp.append(imgAdd);
                 return;
     
             } else if(countRight >= 20){
-            $("#gameContent").css("background", "rgba(150,0,0,.4));
-            num1 = Math.floor((Math.random() * 299) + 99);
-            num2 = Math.floor((Math.random() * 99) + 1);
+            backgroundGame = $("#gameContent").css("background", "rgba(250,0,0,.4)");
+              
+            num1 = Math.floor((Math.random() * 123) + 99);
+            num2 = Math.floor((Math.random() * 50) + 1);
             boxNumber1.append(num1);
             boxNumber2.append(num2);
             boxOp.append(imgAdd);
@@ -126,16 +127,18 @@ function Insert(input){
         else{
             if(op == 2){
                 if(countRight >= 10){
+                    backgroundGame = $("#gameContent").css("background", "rgba(0,0,250,.4)");
                     num1 = Math.floor((Math.random() * 99) + 11);
-                    num2 = Math.floor((Math.random() * 30) + 11);
+                    num2 = Math.floor((Math.random() * 12) + 11);
                     boxNumber1.append(num1);
                     boxNumber2.append(num2);
                     boxOp.append(imgAdd);
                     return;
         
                 } else if(countRight >= 20){  
-                    num1 = Math.floor((Math.random() * 299) + 99);
-                    num2 = Math.floor((Math.random() * 99) + 1);
+                    backgroundGame = $("#gameContent").css("background", "rgba(250,0,0,.4)");
+                    num1 = Math.floor((Math.random() * 123) + 99);
+                    num2 = Math.floor((Math.random() * 50) + 1);
                     boxNumber1.append(num1);
                     boxNumber2.append(num2);
                     boxOp.append(imgAdd);
@@ -150,15 +153,17 @@ function Insert(input){
                 
             } else if (op == 3){
                 if(countRight >= 10){
+                    backgroundGame = $("#gameContent").css("background", "rgba(0,0,250,.4)");
                     num1 = Math.floor((Math.random() * 99) + 11);
-                    num2 = Math.floor((Math.random() * 30) + 11);
+                    num2 = Math.floor((Math.random() * 12) + 11);
                     boxNumber1.append(num1);
                     boxNumber2.append(num2);
                     boxOp.append(imgAdd);
                     return;
-                } else if(countRight >= 20){     
-                    num1 = Math.floor((Math.random() * 299) + 99);
-                    num2 = Math.floor((Math.random() * 99) + 1);
+                } else if(countRight >= 20){   
+                    backgroundGame = $("#gameContent").css("background", "rgba(250,0,0,.4)");  
+                    num1 = Math.floor((Math.random() * 123) + 99);
+                    num2 = Math.floor((Math.random() * 50) + 1);
                     boxNumber1.append(num1);
                     boxNumber2.append(num2);
                     boxOp.append(imgAdd);
@@ -173,16 +178,18 @@ function Insert(input){
                 
             } else if (op == 4){
                 if(countRight >= 10){
+                    backgroundGame = $("#gameContent").css("background", "rgba(0,0,250,.4)");
                     num1 = Math.floor((Math.random() * 99) + 11);
-                    num2 = Math.floor((Math.random() * 30) + 11);
+                    num2 = Math.floor((Math.random() * 12) + 11);
                     boxNumber1.append(num1);
                     boxNumber2.append(num2);
                     boxOp.append(imgAdd);
                     return;
         
                 } else if(countRight >= 20){    
-                    num1 = Math.floor((Math.random() * 299) + 99);
-                    num2 = Math.floor((Math.random() * 99) + 1);
+                    backgroundGame = $("#gameContent").css("background", "rgba(250,0,0,.4)");
+                    num1 = Math.floor((Math.random() * 123) + 99);
+                    num2 = Math.floor((Math.random() * 50) + 1);
                     boxNumber1.append(num1);
                     boxNumber2.append(num2);
                     boxOp.append(imgAdd);
@@ -197,61 +204,3 @@ function Insert(input){
         }
     }
 }
-
-
-
-
-
-
-//     if(op == 1){
-//         correctAnswer = num1 + num2;
-//         if(correctAnswer == result){
-//             return true;   
-//         }else{
-//             return false;
-//         }
-
-//     } else if(op == 2){
-//             correctAnswer = num1 - num2;
-//             if (correctAnswer < 0){
-//                 correctAnswer = correctAnswer * (-1);
-//             }
-//             if(correctAnswer == result.val()){
-                
-//                 return true;
-                
-//             }else{
-//                 status.appendChild(imgWrong);
-//                 return false;
-//             }
-
-//         }else if(op == 3){
-//             correctAnswer = num1 * num2;
-//             if(correctAnswer == result.val()){
-//                 status.appendChild(imgRight);
-//                 return true;
-                
-//             }else{
-//                 status.appendChild(imgWrong);
-//                 return false;
-//             }
-
-//         }else if(op == 4){
-//             correctAnswer = num1 / num2;
-//             correctAnswer = parseInt(correctAnswer);
-//             if(correctAnswer == result.val()){
-//                 status.appendChild(imgRight);
-//                 return true;
-                
-//             }else{
-                
-//                 return false;
-//             }
-
-//         } 
-
-//     } else{
-//         status.appendChild(imgWrong);
-//         return false;
-//     }
-
