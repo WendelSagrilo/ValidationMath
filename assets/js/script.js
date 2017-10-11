@@ -77,8 +77,8 @@ $(function(){
         var boxMin = $("#boxMin");
 
 
-        cent = 49;
-        seg = 17;
+        cent = 99;
+        seg = 22;
         boxCent.html('<span class="cent">' +cent+ '</span>');
         boxSeg.html('<span class="seg">' +seg+ ':</span>');
         min = 0;
