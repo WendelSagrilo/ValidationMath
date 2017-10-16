@@ -88,16 +88,16 @@ function validation(result){
 }
 
 
+//Inserção dos valores
 function Insert(input){
     if(input){
-        //Inserção dos valores
         var num1 = 0;
         var num2 = 0;
                 
         var op = Math.floor((Math.random() * 4) + 1);
         var countRight = $("#scoreCorrect").html();
         if(op == 1){
-            if(countRight >= 10){
+            if(countRight >= 10 && countRight <=20){
                 var backgroundGame = $("#gameContent").css("background", "rgba(0,0,250,.4)");
            
                 num1 = Math.floor((Math.random() * 99) + 11);
@@ -125,14 +125,15 @@ function Insert(input){
     } 
         
         else{
+            console.log(op);
             if(op == 2){
-                if(countRight >= 10){
+                if(countRight >= 10 && countRight <=20){
                     backgroundGame = $("#gameContent").css("background", "rgba(0,0,250,.4)");
                     num1 = Math.floor((Math.random() * 99) + 11);
                     num2 = Math.floor((Math.random() * 12) + 11);
                     boxNumber1.append(num1);
                     boxNumber2.append(num2);
-                    boxOp.append(imgAdd);
+                    boxOp.append(imgSub);
                     return;
         
                 } else if(countRight >= 20){  
@@ -141,7 +142,7 @@ function Insert(input){
                     num2 = Math.floor((Math.random() * 12) + 1);
                     boxNumber1.append(num1);
                     boxNumber2.append(num2);
-                    boxOp.append(imgAdd);
+                    boxOp.append(imgSub);
                     return;    
                 }
                     
@@ -152,13 +153,13 @@ function Insert(input){
                 boxOp.append(imgSub);
                 
             } else if (op == 3){
-                if(countRight >= 10){
+                if(countRight >= 10 && countRight <=20){
                     backgroundGame = $("#gameContent").css("background", "rgba(0,0,250,.4)");
                     num1 = Math.floor((Math.random() * 99) + 11);
                     num2 = Math.floor((Math.random() * 9) + 11);
                     boxNumber1.append(num1);
                     boxNumber2.append(num2);
-                    boxOp.append(imgAdd);
+                    boxOp.append(imgMult);
                     return;
                 } else if(countRight >= 20){   
                     backgroundGame = $("#gameContent").css("background", "rgba(250,0,0,.4)");  
@@ -166,7 +167,7 @@ function Insert(input){
                     num2 = Math.floor((Math.random() * 50) + 1);
                     boxNumber1.append(num1);
                     boxNumber2.append(num2);
-                    boxOp.append(imgAdd);
+                    boxOp.append(imgMult);
                     return;
                 }
 
@@ -177,13 +178,13 @@ function Insert(input){
                 boxOp.append(imgMult);
                 
             } else if (op == 4){
-                if(countRight >= 10){
+                if(countRight >= 10 && countRight <=20){
                     backgroundGame = $("#gameContent").css("background", "rgba(0,0,250,.4)");
                     num1 = Math.floor((Math.random() * 99) + 11);
                     num2 = Math.floor((Math.random() * 9) + 11);
                     boxNumber1.append(num1);
                     boxNumber2.append(num2);
-                    boxOp.append(imgAdd);
+                    boxOp.append(imgDiv);
                     return;
         
                 } else if(countRight >= 20){    
@@ -192,7 +193,7 @@ function Insert(input){
                     num2 = Math.floor((Math.random() * 50) + 1);
                     boxNumber1.append(num1);
                     boxNumber2.append(num2);
-                    boxOp.append(imgAdd);
+                    boxOp.append(imgDiv);
                 } 
                 num1 = Math.floor((Math.random() * 10) + 1);
                 num2 = Math.floor((Math.random() * 10) + 1);

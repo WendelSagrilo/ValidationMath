@@ -219,7 +219,15 @@ $(function(){
                 result.val("");
 
                 Insert(true);
-                seg = seg+3;
+                //Acrescimo de segundos 
+                if(countRight > 10 && countRight <=20){
+                    seg = seg+6;   
+                } else if(countRight >20 ){
+                    seg = seg+10;
+                } else{
+                    seg = seg +3;
+                }
+                
             //Resposta Errada
             }else{
                 countWrong = countWrong +1;
